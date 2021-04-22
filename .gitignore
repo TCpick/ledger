@@ -1,4 +1,4 @@
-./check_day.py
+./log/*
+./ori/*
 ./log/
 ./ori/
-./template

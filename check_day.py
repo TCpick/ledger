@@ -9,6 +9,7 @@ import os
 import sys
 from http import HTTPStatus
 
+CUR_DIR = "./cur/"
 
 def getInfo(user):
     url = "https://api.f2pool.com/ethereum/%s" %(user)
@@ -51,25 +52,37 @@ def sumDaily(workersOutcome):
 
 def saveOrigin(dateStr, data):
     with open('./ori/%s.json' %dateStr, 'w') as oriOut:
-        json.dump(data, oriOut)
+        json.dump(data, oriOut, indent = 4)
         logging.info("Original data saved to ori/%s.json" %dateStr)
 
 def saveOutcome(dateStr, data):
-    with open('./outcome_%s.json' %dateStr, 'w') as outFile:
-        json.dump(data, outFile)
+    with open(CUR_DIR + './outcome_%s.json' %dateStr, 'w') as outFile:
+        json.dump(data, outFile, indent = 4)
         logging.info("todays outcome calculate done. see outcome_%s.json" %dateStr)
 
 def saveTotal(data):
-    with open('./total.json' ,'w') as outFile:
-        json.dump(data, outFile)
+    with open(CUR_DIR + './total.json' ,'w') as outFile:
+        json.dump(data, outFile, indent = 4)
         logging.info("total outcome calculate done. see total.json")
+
+def calPortion(total_ledger):
+    s = 0
+    for w in total_ledger:
+        s += total_ledger[w]
+    r = {}
+    r["sum"] = s
+    r["coin"] = total_ledger
+    r["portion"] = {}
+    for w in total_ledger:
+        r["portion"][w] = total_ledger[w] / s
+    return r
 
 def sumAll():
     total_ledger = {}
-    for f in os.listdir():
+    for f in os.listdir(CUR_DIR):
         if f.startswith("outcome"):
             dateStr = re.split("[._]", f)[-2]
-            with open('./outcome_%s.json' %dateStr, 'r') as outcome:
+            with open(CUR_DIR + './outcome_%s.json' %dateStr, 'r') as outcome:
                 out = json.load(outcome)
                 out = sumDaily(out)
                 saveOutcome(dateStr, out)
@@ -85,7 +98,8 @@ def main():
     dateStr = sys.argv[1]
     if dateStr == "sum":
         total = sumAll()
-        saveTotal(total)
+        total_w_portion = calPortion(total)
+        saveTotal(total_w_portion)
     else:
         logfileName = './log/%s.log' %dateStr
         logging.basicConfig(filename=logfileName, level=logging.DEBUG)
