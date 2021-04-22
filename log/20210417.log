@@ -1,4 +1,0 @@
-DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.f2pool.com:443
-DEBUG:urllib3.connectionpool:https://api.f2pool.com:443 "GET /ethereum/tcpick HTTP/1.1" 200 3115
-INFO:root:Original data saved to ori/20210417.json
-INFO:root:todays outcome calculate done. see outcome_20210417.json
