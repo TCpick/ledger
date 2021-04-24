@@ -11,7 +11,7 @@ from http import HTTPStatus
 
 CUR_DIR = "./cur/"
 
-def getInfo(user):
+def getInfo_f2(user):
     url = "https://api.f2pool.com/ethereum/%s" %(user)
     r = requests.get(url)
     for i in range(10):
@@ -23,12 +23,14 @@ def getInfo(user):
             sleep(5)
     logging.error('fail to get pool info from %s, retry time exceed.' %url) 
 
-def calOutcome(info):
+def calOutcome_f2(info, outcome):
     totalOutcome = info['ori_value_last_day']
     totalHashes = info['ori_hashes_last_day']
-    workersOutcome = {}
+    workersOutcome = outcome
     workersHashesCheck = 0
     for worker in info['workers']:
+        if not worker[0] in workersOutcome:
+            workersOutcome[worker[0]] = 0
         workersOutcome[worker[0]] = totalOutcome * worker[4] / totalHashes 
         workersHashesCheck += worker[4]
     if workersHashesCheck != totalHashes:
@@ -49,6 +51,10 @@ def sumDaily(workersOutcome):
             sumd += workersOutcome[worker]
         out["sum"] = sumd
         return out
+def f2pool_cal(dateStr, out):
+        f2_info = getInfo_f2('tcpick')
+        saveOrigin("f2pool" + dateStr, f2_info)
+        return calOutcome_f2(f2_info, out)
 
 def saveOrigin(dateStr, data):
     with open('./ori/%s.json' %dateStr, 'w') as oriOut:
@@ -103,9 +109,8 @@ def main():
     else:
         logfileName = './log/%s.log' %dateStr
         logging.basicConfig(filename=logfileName, level=logging.DEBUG)
-        info = getInfo('tcpick')
-        saveOrigin(dateStr, info)
-        out = calOutcome(info)
+        out = {}
+        out = f2pool_cal(dateStr, out)
         out = sumDaily(out)
         saveOutcome(dateStr, out)
 
