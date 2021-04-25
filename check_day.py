@@ -7,6 +7,7 @@ import logging
 import re
 import os
 import sys
+import time
 from http import HTTPStatus
 
 CUR_DIR = "./cur/"
@@ -24,23 +25,71 @@ def restGet(url):
     logging.error('Fail to get from %s, retry time exceed.' %url) 
     return None
 
-def getWorkerList_em(miner):
-    url = "https://api.ethermine.org/miner/%s/dashboard" %ETH_ADDR
+def getWorkerDict_em(miner):
+    url = "https://api.ethermine.org/miner/%s/dashboard" %miner
     rsp = restGet(url)
-    res = []
+    res = {}
     if "data" in rsp:
         if "workers" in rsp["data"]:
             for item in rsp["data"]["workers"]:
-                res.append(item["worker"])
+                res[item["worker"]] = {}
     return res
 
+def getWorkerHistory_em(miner, worker):
+    url = "https://api.ethermine.org/miner/%s/worker/%s/history" %(miner, worker)
+    rsp = restGet(url)
+    if "data" in rsp:
+        return rsp["data"]
+    return None
+
+def calWorkerShare_em(history):
+    timestamp = int(time.time())
+    valid, stale, reject = 0,0,0
+    k = 0
+    for i in range(1, len(history) + 1):
+        if k == 0:
+            item = history[-i]
+            if item["time"] > timestamp - 86400:
+                valid += item["validShares"]
+                stale += item["staleShares"]
+                reject += item["invalidShares"]
+        k = (k + 1) % 6
+    return {"valid": valid, "stale": stale, "reject": reject}
+
+def calWorker_em(workers, daily_total):
+    total_valid = 0
+    for w in workers:
+        total_valid += workers[w]["valid"]
+    for w in workers:
+        workers[w]["portion"] = workers[w]["valid"] / total_valid
+        workers[w]["outcome"] = workers[w]["portion"] * daily_total
+        workers[w]["stale_rate"] = workers[w]["stale"] / workers[w]["valid"]
+        workers[w]["reject_rate"] = workers[w]["reject"] / workers[w]["valid"]
+
 def getDailyOutcome_em(miner):
-    url = "https://api.ethermine.org/miner/%s/currentStats" %ETH_ADDR
+    url = "https://api.ethermine.org/miner/%s/currentStats" %miner
     rsp = restGet(url)
     if "data" in rsp:
         if "coinsPerMin" in rsp["data"]:
             return rsp["data"]["coinsPerMin"] * 60 * 24
     return 0
+
+def ethermine_cal(dateStr, miner, out):
+    daily_total = getDailyOutcome_em(miner)
+    workers = getWorkerDict_em(miner)
+    for w in workers:
+        workers[w] = calWorkerShare_em(getWorkerHistory_em(miner, w))
+    calWorker_em(workers, daily_total)
+
+    ethermine_daily = {"Total": daily_total, "workers": workers}
+    saveOrigin("ethermine" + dateStr, ethermine_daily)
+
+    for w in workers:
+        if w in out:
+            out[w] += workers[w]["outcome"]
+        else:
+            out[w] = workers[w]["outcome"]
+    return out
 
 def getInfo_f2(user):
     url = "https://api.f2pool.com/ethereum/%s" %(user)
@@ -74,6 +123,7 @@ def sumDaily(workersOutcome):
             sumd += workersOutcome[worker]
         out["sum"] = sumd
         return out
+
 def f2pool_cal(dateStr, out):
         f2_info = getInfo_f2('tcpick')
         saveOrigin("f2pool" + dateStr, f2_info)
@@ -134,6 +184,7 @@ def main():
         logging.basicConfig(filename=logfileName, level=logging.DEBUG)
         out = {}
         out = f2pool_cal(dateStr, out)
+        out = ethermine_cal(dateStr, ETH_ADDR, out)
         out = sumDaily(out)
         saveOutcome(dateStr, out)
 
