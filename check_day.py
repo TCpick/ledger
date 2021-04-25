@@ -10,18 +10,41 @@ import sys
 from http import HTTPStatus
 
 CUR_DIR = "./cur/"
+RETRY_TIME = 10
+ETH_ADDR = "0xf83fb33e94D1c6dc1c7325E95dDE4716F020277c"
+
+def restGet(url):
+    for i in range(RETRY_TIME):
+        r = requests.get(url)
+        if r.status_code == HTTPStatus.OK:
+            return json.loads(r.text)
+        else:
+            logging.warning('get from %s fail, retrying...' %url) 
+            sleep(5)
+    logging.error('Fail to get from %s, retry time exceed.' %url) 
+    return None
+
+def getWorkerList_em(miner):
+    url = "https://api.ethermine.org/miner/%s/dashboard" %ETH_ADDR
+    rsp = restGet(url)
+    res = []
+    if "data" in rsp:
+        if "workers" in rsp["data"]:
+            for item in rsp["data"]["workers"]:
+                res.append(item["worker"])
+    return res
+
+def getDailyOutcome_em(miner):
+    url = "https://api.ethermine.org/miner/%s/currentStats" %ETH_ADDR
+    rsp = restGet(url)
+    if "data" in rsp:
+        if "coinsPerMin" in rsp["data"]:
+            return rsp["data"]["coinsPerMin"] * 60 * 24
+    return 0
 
 def getInfo_f2(user):
     url = "https://api.f2pool.com/ethereum/%s" %(user)
-    r = requests.get(url)
-    for i in range(10):
-        if r.status_code == HTTPStatus.OK:
-            info = json.loads(r.text)        
-            return info
-        else:
-            logging.warning('get pool info fail, retrying...') 
-            sleep(5)
-    logging.error('fail to get pool info from %s, retry time exceed.' %url) 
+    return restGet(url)
 
 def calOutcome_f2(info, outcome):
     totalOutcome = info['ori_value_last_day']
