@@ -71,7 +71,7 @@ def getDailyOutcome_em(miner):
     rsp = restGet(url)
     if "data" in rsp:
         if "coinsPerMin" in rsp["data"]:
-            return rsp["data"]["coinsPerMin"] * 60 * 24
+            return rsp["data"]["coinsPerMin"] * 60 * 12 
     return 0
 
 def ethermine_cal(dateStr, miner, out):
