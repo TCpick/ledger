@@ -173,6 +173,13 @@ def sumAll():
     logging.info("total ledger content %s" %total_ledger)
     return total_ledger
 
+def isMorning():
+    hour = time.localtime( time.time() ).tm_hour
+    if hour < 12:
+        return True
+    else:
+        return False
+
 def main():
     dateStr = sys.argv[1]
     if dateStr == "sum":
@@ -180,10 +187,16 @@ def main():
         total_w_portion = calPortion(total)
         saveTotal(total_w_portion)
     else:
+        if isMorning():
+            dateStr += "AM"
+        else:
+            dateStr += "PM"
+
         logfileName = './log/%s.log' %dateStr
         logging.basicConfig(filename=logfileName, level=logging.DEBUG)
         out = {}
-        out = f2pool_cal(dateStr, out)
+        if isMorning():
+            out = f2pool_cal(dateStr, out)
         out = ethermine_cal(dateStr, ETH_ADDR, out)
         out = sumDaily(out)
         saveOutcome(dateStr, out)
