@@ -49,7 +49,7 @@ def calWorkerShare_em(history):
     for i in range(1, len(history) + 1):
         if k == 0:
             item = history[-i]
-            if item["time"] > timestamp - 86400:
+            if item["time"] > timestamp - 43200:
                 valid += item["validShares"]
                 stale += item["staleShares"]
                 reject += item["invalidShares"]
