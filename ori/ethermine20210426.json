@@ -1,0 +1,32 @@
+{
+    "Total": 0.002744768290339485,
+    "workers": {
+        "1070": {
+            "valid": 269,
+            "stale": 5,
+            "reject": 0,
+            "portion": 0.21693548387096775,
+            "outcome": 0.0005954376371784851,
+            "stale_rate": 0.01858736059479554,
+            "reject_rate": 0.0
+        },
+        "niu": {
+            "valid": 401,
+            "stale": 16,
+            "reject": 0,
+            "portion": 0.3233870967741935,
+            "outcome": 0.0008876226487307527,
+            "stale_rate": 0.0399002493765586,
+            "reject_rate": 0.0
+        },
+        "putien": {
+            "valid": 570,
+            "stale": 8,
+            "reject": 0,
+            "portion": 0.4596774193548387,
+            "outcome": 0.001261708004430247,
+            "stale_rate": 0.014035087719298246,
+            "reject_rate": 0.0
+        }
+    }
+}
