@@ -1,0 +1,68 @@
+{
+    "Total": 0.0066580625436046415,
+    "workers": {
+        "1070": {
+            "valid": 222,
+            "stale": 2,
+            "reject": 0,
+            "portion": 0.060227889310906134,
+            "outcome": 0.0004010010539013105,
+            "stale_rate": 0.009009009009009009,
+            "reject_rate": 0.0
+        },
+        "banzhang": {
+            "valid": 576,
+            "stale": 4,
+            "reject": 0,
+            "portion": 0.1562669560499186,
+            "outcome": 0.0010404351668790758,
+            "stale_rate": 0.006944444444444444,
+            "reject_rate": 0.0
+        },
+        "lsy_2": {
+            "valid": 514,
+            "stale": 8,
+            "reject": 0,
+            "portion": 0.13944655453065655,
+            "outcome": 0.0009284438815552865,
+            "stale_rate": 0.01556420233463035,
+            "reject_rate": 0.0
+        },
+        "master": {
+            "valid": 539,
+            "stale": 13,
+            "reject": 0,
+            "portion": 0.14622897449810093,
+            "outcome": 0.0009736016578955241,
+            "stale_rate": 0.02411873840445269,
+            "reject_rate": 0.0
+        },
+        "prol": {
+            "valid": 502,
+            "stale": 8,
+            "reject": 0,
+            "portion": 0.13619099294628323,
+            "outcome": 0.0009067681489119723,
+            "stale_rate": 0.01593625498007968,
+            "reject_rate": 0.0
+        },
+        "prot": {
+            "valid": 819,
+            "stale": 16,
+            "reject": 0,
+            "portion": 0.22219207813347802,
+            "outcome": 0.001479368752906186,
+            "stale_rate": 0.019536019536019536,
+            "reject_rate": 0.0
+        },
+        "putien": {
+            "valid": 514,
+            "stale": 4,
+            "reject": 0,
+            "portion": 0.13944655453065655,
+            "outcome": 0.0009284438815552865,
+            "stale_rate": 0.007782101167315175,
+            "reject_rate": 0.0
+        }
+    }
+}
