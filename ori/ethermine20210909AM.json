@@ -1,0 +1,95 @@
+{
+    "Total": 0.005244145664174105,
+    "workers": {
+        "lee": {
+            "valid": 563,
+            "stale": 11,
+            "reject": 0,
+            "portion": 0.11663559146467785,
+            "outcome": 0.0006116540312678726,
+            "stale_rate": 0.019538188277087035,
+            "reject_rate": 0.0
+        },
+        "lsy": {
+            "valid": 317,
+            "stale": 5,
+            "reject": 0,
+            "portion": 0.06567226020302465,
+            "outcome": 0.00034439489860020535,
+            "stale_rate": 0.015772870662460567,
+            "reject_rate": 0.0
+        },
+        "lsy_2": {
+            "valid": 498,
+            "stale": 11,
+            "reject": 0,
+            "portion": 0.10316967060285892,
+            "outcome": 0.0005410367807662532,
+            "stale_rate": 0.02208835341365462,
+            "reject_rate": 0.0
+        },
+        "lsy_3": {
+            "valid": 557,
+            "stale": 17,
+            "reject": 0,
+            "portion": 0.11539258338512534,
+            "outcome": 0.0006051355158369539,
+            "stale_rate": 0.03052064631956912,
+            "reject_rate": 0.0
+        },
+        "master": {
+            "valid": 516,
+            "stale": 11,
+            "reject": 0,
+            "portion": 0.10689869484151647,
+            "outcome": 0.0005605923270590094,
+            "stale_rate": 0.02131782945736434,
+            "reject_rate": 0.0
+        },
+        "prol": {
+            "valid": 514,
+            "stale": 10,
+            "reject": 0,
+            "portion": 0.10648435881499896,
+            "outcome": 0.0005584194885820365,
+            "stale_rate": 0.019455252918287938,
+            "reject_rate": 0.0
+        },
+        "prol2": {
+            "valid": 489,
+            "stale": 11,
+            "reject": 0,
+            "portion": 0.10130515848353014,
+            "outcome": 0.0005312590076198752,
+            "stale_rate": 0.022494887525562373,
+            "reject_rate": 0.0
+        },
+        "putien": {
+            "valid": 467,
+            "stale": 12,
+            "reject": 0,
+            "portion": 0.09674746219183758,
+            "outcome": 0.0005073577843731732,
+            "stale_rate": 0.02569593147751606,
+            "reject_rate": 0.0
+        },
+        "yyl": {
+            "valid": 429,
+            "stale": 9,
+            "reject": 0,
+            "portion": 0.08887507768800497,
+            "outcome": 0.000466073853310688,
+            "stale_rate": 0.02097902097902098,
+            "reject_rate": 0.0
+        },
+        "zaiton": {
+            "valid": 477,
+            "stale": 9,
+            "reject": 0,
+            "portion": 0.09881914232442511,
+            "outcome": 0.0005182219767580378,
+            "stale_rate": 0.018867924528301886,
+            "reject_rate": 0.0
+        }
+    }
+}
