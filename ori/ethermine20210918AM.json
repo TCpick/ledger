@@ -1,0 +1,68 @@
+{
+    "Total": 0.003781499983170306,
+    "workers": {
+        "lee": {
+            "valid": 539,
+            "stale": 8,
+            "reject": 0,
+            "portion": 0.16358118361153262,
+            "outcome": 0.0006185822430739893,
+            "stale_rate": 0.014842300556586271,
+            "reject_rate": 0.0
+        },
+        "lsy": {
+            "valid": 319,
+            "stale": 2,
+            "reject": 0,
+            "portion": 0.0968133535660091,
+            "outcome": 0.0003660996948805243,
+            "stale_rate": 0.006269592476489028,
+            "reject_rate": 0.0
+        },
+        "lsy_2": {
+            "valid": 456,
+            "stale": 26,
+            "reject": 0,
+            "portion": 0.13839150227617603,
+            "outcome": 0.000523327463528273,
+            "stale_rate": 0.05701754385964912,
+            "reject_rate": 0.0
+        },
+        "lsy_3": {
+            "valid": 492,
+            "stale": 19,
+            "reject": 0,
+            "portion": 0.14931714719271624,
+            "outcome": 0.0005646427895962946,
+            "stale_rate": 0.03861788617886179,
+            "reject_rate": 0.0
+        },
+        "niu": {
+            "valid": 515,
+            "stale": 13,
+            "reject": 0,
+            "portion": 0.15629742033383914,
+            "outcome": 0.0005910386923619749,
+            "stale_rate": 0.02524271844660194,
+            "reject_rate": 0.0
+        },
+        "putien": {
+            "valid": 488,
+            "stale": 5,
+            "reject": 0,
+            "portion": 0.148103186646434,
+            "outcome": 0.0005600521978109588,
+            "stale_rate": 0.010245901639344262,
+            "reject_rate": 0.0
+        },
+        "zaiton": {
+            "valid": 486,
+            "stale": 3,
+            "reject": 1,
+            "portion": 0.14749620637329286,
+            "outcome": 0.0005577569019182909,
+            "stale_rate": 0.006172839506172839,
+            "reject_rate": 0.00205761316872428
+        }
+    }
+}
