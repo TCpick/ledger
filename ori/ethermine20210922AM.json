@@ -1,0 +1,68 @@
+{
+    "Total": 0.004155547668401793,
+    "workers": {
+        "lee": {
+            "valid": 505,
+            "stale": 19,
+            "reject": 0,
+            "portion": 0.1549079754601227,
+            "outcome": 0.000643727476240155,
+            "stale_rate": 0.03762376237623762,
+            "reject_rate": 0.0
+        },
+        "lsy": {
+            "valid": 308,
+            "stale": 6,
+            "reject": 0,
+            "portion": 0.09447852760736196,
+            "outcome": 0.0003926100251128074,
+            "stale_rate": 0.01948051948051948,
+            "reject_rate": 0.0
+        },
+        "master": {
+            "valid": 438,
+            "stale": 9,
+            "reject": 0,
+            "portion": 0.1343558282208589,
+            "outcome": 0.000558322048699382,
+            "stale_rate": 0.02054794520547945,
+            "reject_rate": 0.0
+        },
+        "prol": {
+            "valid": 546,
+            "stale": 5,
+            "reject": 0,
+            "portion": 0.16748466257668712,
+            "outcome": 0.0006959904990636132,
+            "stale_rate": 0.009157509157509158,
+            "reject_rate": 0.0
+        },
+        "prol2": {
+            "valid": 486,
+            "stale": 6,
+            "reject": 0,
+            "portion": 0.149079754601227,
+            "outcome": 0.0006195080266390403,
+            "stale_rate": 0.012345679012345678,
+            "reject_rate": 0.0
+        },
+        "putien": {
+            "valid": 464,
+            "stale": 14,
+            "reject": 0,
+            "portion": 0.1423312883435583,
+            "outcome": 0.000591464453416697,
+            "stale_rate": 0.03017241379310345,
+            "reject_rate": 0.0
+        },
+        "zaiton": {
+            "valid": 513,
+            "stale": 6,
+            "reject": 0,
+            "portion": 0.15736196319018406,
+            "outcome": 0.0006539251392300981,
+            "stale_rate": 0.011695906432748537,
+            "reject_rate": 0.0
+        }
+    }
+}
