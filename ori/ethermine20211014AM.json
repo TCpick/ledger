@@ -1,0 +1,14 @@
+{
+    "Total": 0.0013466054765251434,
+    "workers": {
+        "niu": {
+            "valid": 512,
+            "stale": 16,
+            "reject": 0,
+            "portion": 1.0,
+            "outcome": 0.0013466054765251434,
+            "stale_rate": 0.03125,
+            "reject_rate": 0.0
+        }
+    }
+}
