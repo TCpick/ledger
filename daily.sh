@@ -1,5 +1,5 @@
 set -ex
-if cd /home/pick/mine/ledger; then
+if cd /home/ubuntu/ledger; then
 	d=`date +%Y%m%d`
 	./check_day.py $d
 	./check_day.py sum
