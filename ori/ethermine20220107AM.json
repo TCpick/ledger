@@ -1,0 +1,68 @@
+{
+    "Total": 0.0021660431040854376,
+    "workers": {
+        "1070": {
+            "valid": 220,
+            "stale": 2,
+            "reject": 0,
+            "portion": 0.07907979870596693,
+            "outcome": 0.00017129025265952418,
+            "stale_rate": 0.00909090909090909,
+            "reject_rate": 0.0
+        },
+        "lee": {
+            "valid": 504,
+            "stale": 8,
+            "reject": 0,
+            "portion": 0.1811646297627606,
+            "outcome": 0.00039241039700181905,
+            "stale_rate": 0.015873015873015872,
+            "reject_rate": 0.0
+        },
+        "lsy_2": {
+            "valid": 506,
+            "stale": 14,
+            "reject": 0,
+            "portion": 0.18188353702372395,
+            "outcome": 0.00039396758111690563,
+            "stale_rate": 0.02766798418972332,
+            "reject_rate": 0.0
+        },
+        "lsy_3": {
+            "valid": 298,
+            "stale": 2,
+            "reject": 0,
+            "portion": 0.10711718188353703,
+            "outcome": 0.00023202043314790095,
+            "stale_rate": 0.006711409395973154,
+            "reject_rate": 0.0
+        },
+        "prol": {
+            "valid": 290,
+            "stale": 5,
+            "reject": 0,
+            "portion": 0.10424155283968368,
+            "outcome": 0.0002257916966875546,
+            "stale_rate": 0.017241379310344827,
+            "reject_rate": 0.0
+        },
+        "putien": {
+            "valid": 484,
+            "stale": 0,
+            "reject": 0,
+            "portion": 0.17397555715312724,
+            "outcome": 0.00037683855585095316,
+            "stale_rate": 0.0,
+            "reject_rate": 0.0
+        },
+        "zaiton": {
+            "valid": 480,
+            "stale": 7,
+            "reject": 0,
+            "portion": 0.17253774263120059,
+            "outcome": 0.00037372418762078005,
+            "stale_rate": 0.014583333333333334,
+            "reject_rate": 0.0
+        }
+    }
+}
