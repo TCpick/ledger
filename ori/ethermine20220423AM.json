@@ -1,0 +1,23 @@
+{
+    "Total": 0.0005675296161322916,
+    "workers": {
+        "putien": {
+            "valid": 456,
+            "stale": 15,
+            "reject": 0,
+            "portion": 0.5259515570934256,
+            "outcome": 0.00029849308530141284,
+            "stale_rate": 0.03289473684210526,
+            "reject_rate": 0.0
+        },
+        "zaiton": {
+            "valid": 411,
+            "stale": 10,
+            "reject": 0,
+            "portion": 0.4740484429065744,
+            "outcome": 0.0002690365308308787,
+            "stale_rate": 0.024330900243309004,
+            "reject_rate": 0.0
+        }
+    }
+}
