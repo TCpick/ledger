@@ -1,0 +1,14 @@
+{
+    "Total": 0.00012231101303461652,
+    "workers": {
+        "zaiton": {
+            "valid": 113,
+            "stale": 0,
+            "reject": 0,
+            "portion": 1.0,
+            "outcome": 0.00012231101303461652,
+            "stale_rate": 0.0,
+            "reject_rate": 0.0
+        }
+    }
+}
